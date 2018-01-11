@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>User Login</title>
+
+<style type="text/css">
+
+.logout{
+   float: right;
+ }
+</style>
 </head>
 <body>
 
@@ -15,6 +22,12 @@ var username;
   username:${userbean1.userName}
 </script>
 <div>
+ <div class="logout">
+ 
+  <form action="${pageContext.request.contextPath}/logout" method="post">
+  <h1><input type="submit" value="Logout" /></h1>
+  </form>
+  </div>
   <h2 style="text-align: center">WELCOME TO DSP HOSPITAL</h2>
            <div class="topnav"  style="text-align: right;background-color: powderblue;">
            <a class="active" href="#home">Home</a>
