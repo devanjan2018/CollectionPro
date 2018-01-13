@@ -1,0 +1,16 @@
+h1
+{
+	text-align: right;
+    color: #000000;
+    font-size: 21px;
+    font-family: arial;
+    font-weight: bold;
+    width: 90%;
+    margin: 17px 0px 7px 0px;
+    padding: 1px 0px 1px 0px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
