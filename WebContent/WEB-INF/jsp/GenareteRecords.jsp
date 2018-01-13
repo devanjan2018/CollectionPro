@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+ <html>
 <head>
+ <script src="jQuery.ui.datepicker.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Customer Enrollment</title>
 </head>
@@ -24,7 +25,7 @@
         <td>
           <h2>${Message}</h2>
           <h3>Please fill the details.</h3>
-          <input type="text" id="dob" name="DOB"  placeholder="Enter D.O.B"/>
+          <input type="date" id="dob" name="DOB"  placeholder="Enter D.O.B" onclick="myFunction()"/>
         </td>
      </tr>
      <tr>
@@ -43,5 +44,11 @@
    
       <input type="submit" id="btnContinue" value="Proceed"/>
   </form>
+    <script>
+    function myFunction() {
+        var x = document.getElementById("dob").value;
+        }
+    </script>
+  
 </body>
 </html>

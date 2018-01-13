@@ -13,7 +13,9 @@
 </head>
 <body >
   <h1>
+  <div class="logout">
   <input type="button" id="btnlogout" value="logout"/>
+  </div>
   </h1>
   <h3> Successfully Registered..</h3>
 </body>
