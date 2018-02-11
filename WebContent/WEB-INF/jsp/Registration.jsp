@@ -40,15 +40,27 @@
        </td>
      </tr>
      
+     <tr>
+        <td>
+            <select name="foo" id="foo" value="${Country}">
+              <option value="">-select country-</option>
+                 <c:forEach items="${Country}" var="countrylist" varstatus="st">
+                 <option value="${countrylist.value}" <c:if test="${countrylist.value eq country}"></c:if>>${countrylist.key}</option>
+               </c:forEach>
+            </select>
+        </td>
+     </tr>
+     
    </table>
    
       <input type="submit" id="btnContinue" value="Proceed"/>
   </form>
-    <script>
-    function myFunction() {
+     <script>
+        var country=${Country}
+        alert(country);
+        function myFunction() {
         var x = document.getElementById("dob").value;
         }
     </script>
-  
-</body>
+  </body>
 </html>
