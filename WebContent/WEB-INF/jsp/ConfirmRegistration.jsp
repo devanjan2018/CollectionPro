@@ -18,5 +18,12 @@
   </div>
   </h1>
   <h3> Successfully Registered..</h3>
+  
+  <div class="btn btn-primary" id="chckType">
+   <input type='checkbox' id='chkCart' style="margin-top: 59px;padding: 20px;webkit-transform: scale(3);"/>
+   <label for='chkCart'>PINPAD</label>
+
+  
+  </div>
 </body>
 </html>

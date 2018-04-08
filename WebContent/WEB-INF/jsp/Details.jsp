@@ -4,10 +4,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <style type="text/css">
   .topnav a:hover {
       background-color: #ddd;
@@ -41,6 +46,49 @@
    {
      
    }
+   .modal-content{
+         position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+     
+   }
+   
+   .btn-primary {
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
    
    
    
@@ -58,22 +106,37 @@
  <h1 style="text-align: center"><img src="C:\Users\User\Desktop\plus.jpg" width="42" height="42">DFS HOSPITAL SYSTEM</h1>
           <div class="topnav"  style="text-align: right;background-color: powderblue;">
            <a class="active" href="#home"  onclick ="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Home</a>
-           <a href="#news">News</a>
-           <a href="#contact">Contact</a>
-           <a href="#about">About</a>
+           <a class="active" href="#news" onclick ="document.getElementById('id02').style.display='block'" class="w3-button w3-black">News</a>
+           <a class="active" href="#contact" onclick ="document.getElementById('id03').style.display='block'" class="w3-button w3-black">Contact</a>
+           <a class="active" href="#about" onclick ="document.getElementById('id04').style.display='block'" class="w3-button w3-black">About</a>
            </div> 
            
-             <div id="id01" class="w3-modal">
-               <div class="w3-modal-content">
-                 <div class="w3-container">
-                   <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">X</span>
-                   <p class="modalText">DFS HOME</p>
-                 </div>
-                </div>
-              </div>
-            </div>
+              <jsp:include page="ModelGlobal.jsp" />
+   </div>
    
    <div class="date" id="dateSystem"></div>
+   
+   
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-left: 130px;">
+  <div class="modal-dialog">
+    <div class="modal-content" style="height: 122px;width: 289px;margin-left: 130px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="float: right;margin-top: -10px;">&times;</button>
+        <h4 class="modal-title" id="myModalLabel" style="margin-left: 74px;">Welcome...</h4>
+      </div>
+      <div class="modal-body" style="margin-left: 71px;">
+        This is test 
+      </div>
+      <div class="modal-footer" style="margin-left: 25px;">
+      <form action="/Hospital_Management/newUser.html" method="post">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">New User</button>
+      </form>  
+        <button type="button" class="btn btn-primary" style="position: relative;margin-left: 108px;margin-top: -34px;">Registered User</button>
+      </div>
+    </div> 
+  </div>
+</div>
+   
            
  <h2>${Message}</h2>
 <form:errors path="userId" cssClass="error" />
@@ -100,12 +163,16 @@
    </table>
     
        <input type="submit" value="Continue" id="btncontinue">
-       </form>
+  </form>
        
        <script>
         var date=document.getElementById("dateSystem").innerHTML = Date();
        
-         
+       $(window).load(function(){
+    	   setTimeout(function(){
+    		   $('#myModal').modal('show');
+    	   },3000);
+       });
          
          
          function validate_form()
@@ -135,8 +202,17 @@
         	} // use of spclchrc for userName
         	 
          }
+         
+         
+        
+         $('button').click(function(){
+        	 $('#myModal').modal('hide');
+        	 });
         
         </script>
+        
+       
+        
        
 </body>
 </html>
