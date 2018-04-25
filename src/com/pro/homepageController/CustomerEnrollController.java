@@ -12,7 +12,7 @@ import org.springframework.web.portlet.ModelAndView;
 
 
 
-import com.pro.common.CountryList;
+//import com.pro.common.CountryList;
 
 
 @Controller
@@ -28,8 +28,8 @@ public class CustomerEnrollController {
     	  
 		//Map<String, String> country = CountryList.CountryReference;
 		
-		Map<String, String> country = CountryList.CountryReference;
-		model.put("Country", country);
+		//Map<String, String> country = CountryList.CountryReference;
+		//model.put("Country", country);
 		String stat="The User has Successfully Enrolled the details.";
         return new ModelAndView("Registration","Status",stat);
 		

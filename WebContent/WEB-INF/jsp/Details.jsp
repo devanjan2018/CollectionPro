@@ -111,7 +111,7 @@
            <a class="active" href="#about" onclick ="document.getElementById('id04').style.display='block'" class="w3-button w3-black">About</a>
            </div> 
            
-              <jsp:include page="ModelGlobal.jsp" />
+              
    </div>
    
    <div class="date" id="dateSystem"></div>
@@ -128,8 +128,8 @@
         This is test 
       </div>
       <div class="modal-footer" style="margin-left: 25px;">
-      <form action="/Hospital_Management/newUser.html" method="post">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">New User</button>
+      <form action="/Hospital_Management/newUser.html" >
+        <button type="submit" class="btn btn-primary" data-dismiss="modal">New User</button>
       </form>  
         <button type="button" class="btn btn-primary" style="position: relative;margin-left: 108px;margin-top: -34px;">Registered User</button>
       </div>

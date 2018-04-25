@@ -8,13 +8,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import com.pro.serviceDao.*;
+//import com.pro.serviceDao.*;
 
 import com.pro.Iproperty.IProperty;
 
 import javax.validation.Valid;
 
-import org.apache.catalina.core.ApplicationContext;
+//import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -30,8 +30,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import sun.nio.cs.ext.ISCII91;
 
-import com.pro.service.UserService;
-import com.pro.serviceDao.UserDao;
+//import com.pro.service.UserService;
+//import com.pro.serviceDao.UserDao;
 import com.pro.session.SessionFlowController;
 import com.pro.url.UrlProperties;
 //import com.pro.validator.UserValidator;
@@ -52,7 +52,7 @@ public class HomeController {
 	 */
 
 	//@Autowired SessionFlowController session;
-	@Autowired UserService userSer;
+	//@Autowired UserService userSer;
 	@InitBinder
 	public void initbinder(WebDataBinder binder) {
 		binder.registerCustomEditor(String.class, "gender",
@@ -82,25 +82,18 @@ public class HomeController {
 
 	@RequestMapping(value = UrlProperties.DO_HOME, method = RequestMethod.POST)
 	public ModelAndView userLogin(@Valid @ModelAttribute("userbean1") UserBean userbean1, BindingResult bs) {
-		// dao.save(userbean1);
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
-		
-		UserDaoImpl userdao = (UserDaoImpl)context.getBean("HospitalMang");
-		
-        SessionFlowController session=new SessionFlowController();
-        
-		if (bs.hasErrors()) {
+		//ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
+	    SessionFlowController session=new SessionFlowController();
+        if (bs.hasErrors()) {
 			ModelAndView model1 = new ModelAndView("Details");
 			return model1;
 		}
-		
 		session.setUserId(1234);
 		session.setUserName(userbean1.getUserName());
 		if(userbean1.getUserId()==session.getUserId() && userbean1.getUserName()==session.getUserName())
 		{
-			
+		
 			ModelAndView model = new ModelAndView("login");
-			userSer.addUsers(userbean1);
 			return model;
 		}
 		
