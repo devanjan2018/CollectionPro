@@ -49,29 +49,7 @@ public class NewUserController {
 
 	}
 
-	/*@RequestMapping(value = UrlProperties.DO_HOME, method = RequestMethod.POST)
-	public ModelAndView userLogin(@Valid @ModelAttribute("userbean1") UserBean userbean1, BindingResult bs) {
-		//ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
-	    SessionFlowController session=new SessionFlowController();
-        if (bs.hasErrors()) {
-			ModelAndView model1 = new ModelAndView("Details");
-			return model1;
-		}
-		session.setUserId(1234);
-		session.setUserName(userbean1.getUserName());
-		if(userbean1.getUserId()==session.getUserId() && userbean1.getUserName()==session.getUserName())
-		{
-		
-			ModelAndView model = new ModelAndView("login");
-			return model;
-		}
-		
-		ModelAndView model= new ModelAndView("Details");
-		return model;
-		
-		
-       
-	}*/
+	
 
 }
 

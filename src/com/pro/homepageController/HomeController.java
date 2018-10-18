@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import com.pro.Implementation.CustomerDetailsLookUp;
 //import com.pro.serviceDao.*;
 
 import com.pro.Iproperty.IProperty;
@@ -28,8 +29,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import sun.nio.cs.ext.ISCII91;
 
+
+import com.pro.session.SessionDetails;
 //import com.pro.service.UserService;
 //import com.pro.serviceDao.UserDao;
 import com.pro.session.SessionFlowController;
@@ -40,6 +42,7 @@ import com.pro.bean.ConnectionBean;
 import com.pro.bean.CustProfileEditor;
 import com.pro.bean.UserBean;
 import com.pro.common.Iproperty;
+import com.pro.localBean.CustomerDetails;
 
 //import com.pro.validator.UserValidator;
 
@@ -50,7 +53,7 @@ public class HomeController {
 	/*
 	 * @Autowired LoginImpl dao;
 	 */
-
+@Autowired SessionDetails session;
 	//@Autowired SessionFlowController session;
 	//@Autowired UserService userSer;
 	@InitBinder
@@ -83,25 +86,18 @@ public class HomeController {
 	@RequestMapping(value = UrlProperties.DO_HOME, method = RequestMethod.POST)
 	public ModelAndView userLogin(@Valid @ModelAttribute("userbean1") UserBean userbean1, BindingResult bs) {
 		//ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
-	    SessionFlowController session=new SessionFlowController();
-        if (bs.hasErrors()) {
+		//CustomerDetailsLookUp lookup =new CustomerDetailsLookUp();
+		session.setUserId(userbean1.getUserId());
+		session.setUserName(userbean1.getUserName());
+		if (bs.hasErrors()) {
 			ModelAndView model1 = new ModelAndView("Details");
 			return model1;
 		}
-		session.setUserId(1234);
-		session.setUserName(userbean1.getUserName());
-		if(userbean1.getUserId()==session.getUserId() && userbean1.getUserName()==session.getUserName())
-		{
 		
-			ModelAndView model = new ModelAndView("login");
+		ModelAndView model = new ModelAndView("login");
 			return model;
-		}
 		
-		ModelAndView model= new ModelAndView("Details");
-		return model;
-		
-		
-       
+
 	}
 
 }
